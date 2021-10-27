@@ -10,8 +10,10 @@
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
+
 	_quick_sort(array, 0, size - 1, size);
-	print_array(array, size);
 }
 /**
  * _quick_sort - recursive quick sort function
@@ -78,7 +80,7 @@ int get_pivot(int *array, int low, int high, size_t size)
 			swap(&array[i], &array[j]);
 		}
 	}
-	print_array(array, size);
 	swap(&array[i + 1], &array[high]);
+	print_array(array, size);
 	return (i + 1);
 }
